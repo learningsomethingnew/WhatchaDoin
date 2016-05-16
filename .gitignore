@@ -1,6 +1,8 @@
 .DS_Store
-.direnv
+.direnv/
 .envrc
 __pycache__
 secrets.py
 db.sqlite3
+
+.idea/
