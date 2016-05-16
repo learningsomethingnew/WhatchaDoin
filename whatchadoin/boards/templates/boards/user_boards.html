@@ -1,0 +1,16 @@
+{% extends "whatchadoin/templates/base.html" %}
+
+{% block content %}
+
+{% for a_board in boards %}
+    <ul>
+        <li><a href="{% url 'boards:board' a_board.id %}">{{a_board.name}} {{a_board.id}}</a></li>
+    </ul>
+{% endfor %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit"/>
+</form>
+{% endblock content %}

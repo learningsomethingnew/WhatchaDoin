@@ -1,0 +1,13 @@
+{% extends "whatchadoin/templates/base.html" %}
+
+{% block content %}
+
+<h2>Profile</h2>
+
+<form action="" method="POST">
+    {% for option in options %}
+        <ul> {{ option }}</ul>
+    {% endfor %}
+</form>
+
+{% endblock content %}

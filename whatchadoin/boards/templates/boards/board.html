@@ -1,0 +1,81 @@
+{% extends "whatchadoin/templates/base.html" %}
+
+{% block content %}
+
+{% load board_extras %}
+
+{% for col in columns %}
+<ul>
+    <li>
+        {{col.name}} - {{col.order}}
+    </li>
+        <ul>
+            {% for card in col.id|get_card %}
+            <li>
+                {{card.name}}
+            </li>
+            {% empty %}
+            {% endfor %}
+            <li>
+            <form method="post">
+            {% csrf_token %}
+            {{ cardform.as_p }}
+            <input type="hidden" name="col_id" value="{{ col.id }}">
+            <input type="submit" name="new_card" value="Create New Task"/>
+        </form>
+        </li>
+        </ul>
+</ul>
+
+{% endfor %}
+<ul>
+    <li>
+        <form method="post">
+            {% csrf_token %}
+            {{ colform.as_p }}
+            <input type="submit" name='new_list' value="Create New List"/>
+        </form>
+    </li>
+</ul>
+
+{% endblock content %}
+-------------
+
+
+
+
+
+{% for col in columns %}
+
+<ul>
+    <li>{{col.name}} {{col.id}}</li>
+    {% for card.col__id in cards %}
+    <ul>
+        <li>
+            {{card}}
+        </li>
+    </ul>
+    {% endfor %}
+    <ul>
+        <li>
+            <form method="post">
+            {% csrf_token %}
+            {{ cardform.as_p }}
+            <input type="hidden" name="col_id" value="{{ col.id }}">
+            <input type="submit" name="new_card" value="Create New Task"/>
+        </form>
+        </li>
+    </ul>
+</ul>
+
+{% endfor %}
+<ul>
+    <li>
+        <form method="post">
+            {% csrf_token %}
+            {{ colform.as_p }}
+            <input type="submit" name='new_list' value="Create New List"/>
+        </form>
+    </li>
+</ul>
+
