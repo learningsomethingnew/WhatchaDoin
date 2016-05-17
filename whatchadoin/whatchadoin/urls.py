@@ -16,6 +16,17 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from .views import login, profile, register
+from boards.api import views
+
+# router for Admin to view all users
+from rest_framework import routers
+
+# setting up router for admin view
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+
+# Auth login
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -25,6 +36,11 @@ urlpatterns = [
     url(r'^profile/', profile),
     url(r'^register/', register),
     url(r'^boards/', include('boards.urls')),
+
+    # Takes in the users from the router
+    url(r'^', include(router.urls)),
+
     url(r'^$', include('home.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'boards/style.css' %}"/>
+    <meta charset="UTF-8">
+    <title>Whatcha Doing</title>
+
+</head>
+<body>
+<div id="loginbox">
+    <header>
+        <h1 id="main">Login</h1>
+    </header>
+    <form id="myform">
+
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username"/>
+
+        <label for="password">Password</label>
+        <input type="text" id="password" placeholder="Password"/>
+
+        <input type="submit" id="login" value="Login"/>
+
+    </form>
+
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+</html>

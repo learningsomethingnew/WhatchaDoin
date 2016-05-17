@@ -105,3 +105,7 @@ def board(request, board_id):
 
 class BoardViewSet(viewsets.ModelViewSet):
     queryset = Board
+
+
+def api_boards(request):
+    return render(request, 'boards/api-boards.html')
