@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi --log-file -
+web: gunicorn --pythonpath whatchadoin whatchadoin.wsgi --log-file -
