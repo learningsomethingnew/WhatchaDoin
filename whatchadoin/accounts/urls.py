@@ -2,8 +2,6 @@ from django.conf.urls import url
 from .views import login_page, profile, register, logout_page
 from django.contrib.auth import views as auth_views
 
-
-
 app_name = 'accounts'
 
 urlpatterns = [
