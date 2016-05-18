@@ -21,7 +21,8 @@ class Board(models.Model):
 class Column(models.Model):
     board = models.ForeignKey(Board)
     name = models.CharField(max_length=255)
-    order = models.IntegerField(default=lambda: Column.get_latest_id())
+    # order = models.IntegerField(default=lambda: Column.get_latest_id())
+    order = models.IntegerField()
 
     """ASK BRYCE. BETTER WAY?
         What about a non-static. How would you call it?"""
@@ -45,7 +46,8 @@ class Column(models.Model):
 class Cards(models.Model):
     column = models.ForeignKey(Column, related_name='cards_per_column')
     name = models.CharField(max_length=255)
-    order = models.IntegerField(default=lambda: Column.get_latest_id())
+    # order = models.IntegerField(default=lambda: Column.get_latest_id())
+    order = models.IntegerField()
 
     @staticmethod
     def get_latest_id():
